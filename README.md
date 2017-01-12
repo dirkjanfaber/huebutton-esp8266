@@ -17,8 +17,9 @@ The code uses the https://platform.io/ framework.
 Clone the repository first, then initialize the submodule(s):
 
     git clone https://github.com/steviethecat/huebutton-esp8266.git
+    cd huebutton-eps8266
     git submodule init
-    git submodule pull 
+    git submodule update 
     
 
 ## Hardware
