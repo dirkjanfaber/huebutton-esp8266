@@ -51,9 +51,7 @@ void setup () {
 }
 
 void loop () {
-  // Serial.print("loop");
-  // delay(1000);
-
+  
   int reading = digitalRead(buttonPin);
 
    // If the switch changed, due to noise or pressing:
@@ -70,13 +68,11 @@ void loop () {
     if (reading != buttonState) {
       buttonState = reading;
 
-      Serial.println("button changed");
-
       WiFiClient client;
 
       // We need to check the hueState, as other buttons may have switched
       // the light too. We check this by asking the bridge for the state of
-      // the light. We need to do a get first:
+      // the light.
       if (client.connect(HUE_BRIDGE, 80)) {
         // Make a HTTP request:
         client.println(String("GET /api/")+API_KEY+"/lights/"+LIGHT+" HTTP/1.1");
@@ -145,6 +141,7 @@ void loop () {
           root.printTo(body);
           Serial.println(body);
 
+          // Send the prefered state to the bridge
           if (client.connect(HUE_BRIDGE, 80)) {
             client.print(String("PUT /api/")+API_KEY+"/lights/"+LIGHT+"/state HTTP/1.1\r\n" +
                          "Connection: close\r\n" +
