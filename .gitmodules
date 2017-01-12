@@ -1,0 +1,3 @@
+[submodule "lib/NTPtimeESP"]
+	path = lib/NTPtimeESP
+	url = https://github.com/SensorsIot/NTPtimeESP
