@@ -20,7 +20,22 @@ Clone the repository first, then initialize the submodule(s):
     cd huebutton-eps8266
     git submodule init
     git submodule update 
+
+Then, open the directory in atom and use <tt>PlatformIO: Initialize or Update PlatformIO Project</tt>. 
+
+Select the correct board (<tt>Espressif Generic ESP8266 ESP-01 1M</tt>) and 
+wait a while, depending on how much you need to download. 
     
+
+### Troubleshooting
+
+* <tt>fatal error: ArduinoJson.h: No such file or directory</tt>
+
+Solution:
+
+<pre>
+pio lib install ArduinoJson
+</pre>
 
 ## Hardware
 
